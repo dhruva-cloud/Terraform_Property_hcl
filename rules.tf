@@ -36,21 +36,14 @@ data "akamai_property_rules_builder" "property_rule_default" {
         autodv = ""
       }
     }
-    behavior {
-      enhanced_proxy_detection {
-        best_practice_action      = "ALLOW"
-        enable_configuration_mode = "BEST_PRACTICE"
-        enabled                   = true
-        forward_header_enrichment = false
-      }
-    }
+
     behavior {
       cp_code {
         value {
           created_date = 1548068489000
           description  = "tf-cp1"
-          id           = 123456
-          name         = "tf-cp1"
+          id           = 1653771
+          name         = "terraform-demo.test.cloud.ibm.com"
           products     = ["Fresca", "Site_Accel", ]
         }
       }
@@ -217,8 +210,8 @@ data "akamai_property_rules_builder" "property_rule_traffic_reporting" {
         value {
           created_date = 1548068489000
           description  = "tf-cp1"
-          id           = 814598
-          name         = "tf-cp1"
+          id           = 1653771
+          name         = "terraform-demo.test.cloud.ibm.com"
           products     = ["Fresca", "Site_Accel", ]
         }
       }

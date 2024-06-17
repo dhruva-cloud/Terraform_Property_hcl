@@ -13,3 +13,9 @@ Property.tf file
 Rules.tf file
 
 1. Add origin hostname on line 21
+
+Prerequisites:
+- Have access to Akamai Control Center.
+- Have access to Akamai Ion Standard
+- Have created a valid Akamai EdgeGrid API Client and .edgerc file
+- Have a code editor (using VSCode) and Terraform and Akamai CLI with Terraform Export package installed.

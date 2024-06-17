@@ -21,7 +21,14 @@ data "akamai_contract" "contract" {
   group_name = data.akamai_group.group.group_name
 }
 
-
+resource "akamai_edge_hostname" "edge_hostname" {
+  product_id    = var.product_id
+  contract_id   = data.akamai_contract.contract.id
+  group_id      = data.akamai_group.group.id
+  edge_hostname = "terraform-demo.test.cloud.ibm.com.edgekey.net"
+  ip_behavior   = "IPV4"
+  certificate   = "214306"
+}
 resource "akamai_property" "property" {
   name        = "terraform-demo.test.cloud.ibm.com"
   contract_id = data.akamai_contract.contract.id
@@ -32,6 +39,7 @@ resource "akamai_property" "property" {
     cname_from             = "terraform-demo.test.cloud.ibm.com"
     cname_to               = "terraform-demo.test.cloud.ibm.com.edgekey.net"
     cert_provisioning_type = "CPS_MANAGED"
+
   }
   rules = data.akamai_property_rules_builder.property_rule_default.json
 }
